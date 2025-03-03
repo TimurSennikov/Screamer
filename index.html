@@ -157,10 +157,23 @@
             }
         </style>
 </head>
-
-
-<video id="video" src="media/video.mp4" loop></video>
-
+<body>
+<div id="overlay" class="overlay">
+<div class="overlay-body">
+<p class="overlay-title">Cookies и сторонний контент</p>
+<p class="overlay-description">Этот сайт использует cookies что-бы собирать информацию об ошибках
+чтобы улучшить сайт и исправить ошибки. Приймите cookies для хорошей
+оптимальной производительности.</p>
+<div class="overlay-buttons-wrapper">
+<div id="accept-button" class="overlay-button">Принять</div>
+<div id="decline-button" class="overlay-button">Отклонить</div>
+</div>
+<a href="https://parad1st.github.io/" target="_blank" class="overlay-link">Пользовательское соглашение</a>
+</div>
+</div>
+<div class="scare">
+<video id="video" class="video" src="media/video.mp4" loop></video>
+</div>
 <script type="text/javascript">
             const video = document.getElementById("video");
             const overlay = document.getElementById("overlay");
@@ -172,12 +185,14 @@
             window.onbeforeunload = function( ) {
                 if(hasClicked) return true;
             };
-            
-            if(!hasClicked) hasClicked = true;
-            overlay.hidden = true;
-            video.play();
-            videoClick();
-            
+
+            function buttonClick(event) {
+                event.preventDefault();
+                if(!hasClicked) hasClicked = true;
+                overlay.hidden = true;
+                video.play();
+                videoClick();
+            }
 
             function videoClick(event) {
                 if(event) event.preventDefault();
@@ -187,7 +202,9 @@
                 else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
                 else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
             }
-            
+
+            addEventListener("load", buttonClick);
+            declineButton.addEventListener("click", buttonClick);
             video.addEventListener("click", videoClick);
         </script>
 
