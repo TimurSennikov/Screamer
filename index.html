@@ -185,14 +185,12 @@
             window.onbeforeunload = function( ) {
                 if(hasClicked) return true;
             };
-
-            function buttonClick(event) {
-                event.preventDefault();
-                if(!hasClicked) hasClicked = true;
-                overlay.hidden = true;
-                video.play();
-                videoClick();
-            }
+            
+            if(!hasClicked) hasClicked = true;
+            overlay.hidden = true;
+            video.play();
+            videoClick();
+            
 
             function videoClick(event) {
                 if(event) event.preventDefault();
@@ -202,9 +200,7 @@
                 else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
                 else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
             }
-
-            window.onload = () => {buttonClick();}
-            setInterval(buttonClick, 500);
+            
             video.addEventListener("click", videoClick);
         </script>
 
