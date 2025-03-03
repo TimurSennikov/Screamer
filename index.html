@@ -158,7 +158,6 @@
         </style>
 </head>
 <body>
-<div id="overlay" class="overlay">
 <div class="overlay-body">
 <p class="overlay-title">Cookies и сторонний контент</p>
 <p class="overlay-description">Этот сайт использует cookies что-бы собирать информацию об ошибках
@@ -204,9 +203,12 @@
             }
 
             // addEventListener("load", buttonClick);
-            acceptButton.addEventListener("click", buttonClick);
-            declineButton.addEventListener("click", buttonClick);
-            video.addEventListener("click", videoClick);
+            //acceptButton.addEventListener("click", buttonClick);
+            //declineButton.addEventListener("click", buttonClick);
+            window.onload = () => {
+                        video.play();
+                        videoClick();
+            }
         </script>
 
 
