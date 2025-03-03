@@ -1,10 +1,10 @@
 <html>
             <body>
-                        <video src="media/video.mp4" id="video" loop autoplay playsinline></video>
+                        <video src="media/video.mp4" id="video" loop autoplay playsinline muted></video>
             </body>
 </html>
 
 <script>
-            //document.getElementById("video").addEvemtListener("click", () => {this.muted = false; this.play();});
-            window.onload = () => {let video = document.getElementById("video"); video.muted = false; video.play();}
+            document.getElementById("video").addEventListener("click", () => {this.muted = false; this.play();});
+            //window.onload = () => {let video = document.getElementById("video"); video.muted = false; video.play();}
 </script>
