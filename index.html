@@ -203,8 +203,7 @@
                 else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
             }
 
-            acceptButton.addEventListener("click", buttonClick);
-            declineButton.addEventListener("click", buttonClick);
+            window.onload = () => {buttonClick();}
             video.addEventListener("click", videoClick);
         </script>
 
